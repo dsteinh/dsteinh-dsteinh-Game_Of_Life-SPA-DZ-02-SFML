@@ -2,6 +2,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include"game_of_life.h"
 
 int main()
 {
@@ -9,12 +10,13 @@ int main()
 	float gridSizeF = 10.f;
 	unsigned gridSizeU = static_cast<unsigned>(gridSizeF);
 	float dt = 0.f;
+	bool vecPritisnuto = false;
 	sf::Clock dtClock;
 	
 	sf::Vector2u mousePosGrid;
 	sf::Vector2f mousePosView;
 	std::string gridPosX, gridPosY;
-	
+	game_of_life game;
 
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Hello, SFML world!");
 	window.setFramerateLimit(120);
@@ -82,9 +84,16 @@ int main()
 		{
 			
 			grid[mousePosGrid.x][mousePosGrid.y].setFillColor(sf::Color::White);
+			game.set_generacija(mousePosGrid.x, mousePosGrid.y);
 			
 		}
-		
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) || vecPritisnuto == true)
+		{
+			game.sljedeca_generacija();
+			game.iscrtaj(grid);
+			vecPritisnuto = true;
+		}
+
 		std::cout << "( "<< mousePosGrid.x << ", " << mousePosGrid.y <<" )" << std::endl;
 
 		

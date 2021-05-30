@@ -3,7 +3,7 @@
 #include <SFML/Graphics.hpp>
 game_of_life::game_of_life()
 {
-   // srand(time(nullptr));
+    srand(time(nullptr));
     for (unsigned i = 0; i < REDAKA; i++)
     {
 
@@ -59,6 +59,16 @@ int game_of_life::koliko_susjeda(int i, int j)
     return sum;
 }
 
+int game_of_life::gen_rnd()
+{
+    
+        int min = 0;
+        int max = 5;
+
+        return rand() % (max - min + 1) - min;
+    
+}
+
 
 void game_of_life::sljedeca_generacija()
 {
@@ -111,7 +121,8 @@ void game_of_life::sljedeca_generacija()
 
 void game_of_life::iscrtaj(std::vector<std::vector<sf::RectangleShape>>& grid)
 {
-  
+    float colors[]{ 0x4287f5, 0x51f542, 0xf5ef42, 0xde2121, 0xde21cb, 0xde215a };
+
 
     for (unsigned i = 0; i < REDAKA; i++)
     {
@@ -120,7 +131,7 @@ void game_of_life::iscrtaj(std::vector<std::vector<sf::RectangleShape>>& grid)
         {
             switch (_generacija[i][j])
             {
-            case true: grid[i][j].setFillColor(sf::Color::White);
+            case true: grid[i][j].setFillColor(sf::Color(colors[gen_rnd()]));
                
                 break;
 

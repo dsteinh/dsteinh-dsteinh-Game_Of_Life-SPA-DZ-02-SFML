@@ -2,7 +2,10 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <ctime>
 #include"game_of_life.h"
+
+
 
 int main()
 {
@@ -13,10 +16,12 @@ int main()
 	bool vecPritisnuto = false;
 	sf::Clock dtClock;
 	
+
 	sf::Vector2u mousePosGrid;
 	sf::Vector2f mousePosView;
 	std::string gridPosX, gridPosY;
 	game_of_life game;
+
 
 	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Hello, SFML world!");
 	window.setFramerateLimit(120);

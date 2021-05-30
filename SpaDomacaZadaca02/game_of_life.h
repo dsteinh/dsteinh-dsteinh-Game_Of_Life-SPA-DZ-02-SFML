@@ -21,7 +21,7 @@ private:
 	bool _sljedeca_generacija[REDAKA][STUPACA];
 	bool slucajna_vrijednost();
 	int koliko_susjeda(int i, int j);
-	
+	int gen_rnd();
 
 public:
 	game_of_life();

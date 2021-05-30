@@ -23,7 +23,7 @@ int main()
 	game_of_life game;
 
 
-	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Hello, SFML world!");
+	sf::RenderWindow window(sf::VideoMode(1000, 1000), "Zadaca: Domagoj Steinhauzer");
 	window.setFramerateLimit(120);
 
 	sf::View view;
